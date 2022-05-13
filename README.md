@@ -6,7 +6,7 @@ No switches, only touch screens and voice
 ## Server
 
 - Lenovo M700 tiny i3 128Gb 8Gb
-- deConz USB zigbee stick
+- deConz USB zigbee stick https://phoscon.de/en/conbee2
 - p1 cable
 - 500W UPS
 
@@ -70,8 +70,12 @@ https://www.banggood.com/5V-or-7-28V-Power-Supply-8-Channel-ESP8266-WIFI-8-way-R
 ## Heating
 https://www.banggood.com/5V-or-7-28V-Power-Supply-8-Channel-ESP8266-WIFI-8-way-Relay-Module-ESP-12F-Development-Board-Secondary-Development-Board-p-1833055.html?cur_warehouse=CN&rmmds=buy
 
-## Alarm
+https://www.xiaomiproducts.nl/nl/xiaomi-aqara-temperatuur-en-vochtigheidssensor.html
 
+
+## Alarm
+- Door sensor: https://www.xiaomiproducts.nl/nl/xiaomi-aqara-deur-en-raam-sensor-104834619.html
+- 
 
 ## Energy metering
 ### Smart meter
@@ -85,7 +89,20 @@ https://www.sossolutions.nl/slimme-meter-kabel-p1-kabel-10-meter
 
 ### Shelly Plug S
 
+
 ## Location
 
+
+# Voice
+https://www.lenovo.com/gb/en/smart-clock/?orgRef=https%253A%252F%252Fwww.google.com%252F
+
+
+
+
+# Various Electrical hardware
+- https://www.dmlights.be/meanwell_ledvoeding_constante_spanning_led_driver_24vdc_100w~1AI65
+- https://www.automation24.be/nl/distributieblok-phoenix-3273374-ptfix-6-18x2-5-gy
+- https://www.netwerkkabel.eu/nl/8u-wand-server-rack-494x400x360mm-bxdxh.html
+- https://www.dmlights.be/abb__vynckier__fix_o_rail_36mod_2x18_~19QT3
 
 
