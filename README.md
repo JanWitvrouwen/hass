@@ -1,4 +1,5 @@
-#Home assistant all around the house
+# Home assistant all around the house
+
 In this git repo you will find my approach to a smart house. The aim is to have the highest level of comfort with the least amount of classic switches. 
 No switches, only touch screens and voice
 
