@@ -93,13 +93,13 @@ https://www.sossolutions.nl/slimme-meter-kabel-p1-kabel-10-meter
 ## Location
 
 
-# Voice
+## Voice
 https://www.lenovo.com/gb/en/smart-clock/?orgRef=https%253A%252F%252Fwww.google.com%252F
 
 
 
 
-# Various Electrical hardware
+## Various Electrical hardware
 - https://www.dmlights.be/meanwell_ledvoeding_constante_spanning_led_driver_24vdc_100w~1AI65
 - https://www.automation24.be/nl/distributieblok-phoenix-3273374-ptfix-6-18x2-5-gy
 - https://www.netwerkkabel.eu/nl/8u-wand-server-rack-494x400x360mm-bxdxh.html
