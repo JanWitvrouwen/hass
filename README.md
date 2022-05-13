@@ -4,9 +4,20 @@ In this git repo you will find my approach to a smart house. The aim is to have 
 No switches, only touch screens and voice
 
 ## Server
-Lenovo M700 tiny
-deConz USB zigbee stick
-p1 
+
+- Lenovo M700 tiny i3 128Gb 8Gb
+- deConz USB zigbee stick
+- p1 cable
+- 500W UPS
+
+
+
+## Network
+- Unifi Switch
+- Unifi Router
+- Unifi AP
+For better visibility, all IOT wifi devices are connected to a dedicated hidden SSID.
+To ease network integration, i've come back from a seperate network for IOT and now everyting is in 1 flat vlan.
 
 ## Light
 All shelly modules are powered by 12 or 24V to ease the wiring and open the possibility for external switches on UTP.
