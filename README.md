@@ -91,9 +91,10 @@ https://www.sossolutions.nl/slimme-meter-kabel-p1-kabel-10-meter
 
 ## Velux Windows
 INTEGRA velux window which was delivered with a KLI311 remote.
+
 KLF 050 WW remote connected to 2 relays on a ESPHOme 8 relay module.
 
-
+Check velux-esphome.yaml [velux-cover.yaml](esphome/velux-cover.yaml)
 
 ## Location
 
