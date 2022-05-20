@@ -1,0 +1,37 @@
+# Four relay outputs, exposed as switches in Home Assistant
+switch:
+  - platform: gpio
+    pin: GPIO12
+    name: Cover Down
+    id: relay3
+  - platform: gpio
+    pin: GPIO13
+    name: Cover Up
+    id: relay4
+    
+cover:
+  - platform: template
+    device_class: window
+    name: "Velux Window"
+    open_action:
+      - switch.turn_off: relay3
+      - switch.turn_off: relay4
+      - switch.turn_on: relay4
+      - delay: 0.5s
+      - switch.turn_off: relay4
+    close_action:
+      - switch.turn_off: relay3
+      - switch.turn_off: relay4
+      - switch.turn_on: relay3
+      - delay: 0.5s
+      - switch.turn_off: relay3
+    stop_action:
+      - switch.turn_off: relay3
+      - switch.turn_off: relay4
+      - switch.turn_on: relay3
+      - switch.turn_on: relay4
+      - delay: 0.5s
+      - switch.turn_off: relay3
+      - switch.turn_off: relay4      
+    optimistic: true
+    assumed_state: true    
