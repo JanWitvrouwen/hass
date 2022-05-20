@@ -1,4 +1,6 @@
 # Home assistant all around the house
+![owner-wip](https://img.shields.io/badge/Owner-JanW-yellow)
+![status-wip](https://img.shields.io/badge/Status-Draft-important)
 
 In this git repo you will find my approach to a smart house. The aim is to have the highest level of comfort with the least amount of classic switches. 
 No switches, only touch screens and voice
@@ -37,13 +39,12 @@ Intergration in hass is done via [Shelly4Hass](https://github.com/StyraHem/Shell
 ### Xiaomi Aqara Human Motion 
 In most places, a xiaomi wireless motion sensor works perfect. With the build in light sensor it is possible to only switch lights on when it is dark.
 Intergration in hass is done wireless via deConz
-[Code](Node-Red/aqara-motion.json)
+- [Code](Node-Red/aqara-motion.json)
 
 ### 24V PIR motion sensor wired
 For the places with limit zigbee coverage, i use wired [pir motion sensors](https://www.amazon.nl/dp/B09LZ635P8/ref=pe_28126711_487805961_TE_item_image) attached to the input of a [Shelly 1 module](https://shelly.cloud/shelly-plus-1/).
 Intergration in hass is done by connecting the PIR to the switch input on a Shelly 1 and settings the switch type to deconnected.
-
-[Code](Node-Red/pir.json)
+- [Code](Node-Red/pir.json)
 ## Switches
 ### NSPanel
 - [NSPanel](https://sonoff.tech/product/smart-wall-swtich/nspanel/)
@@ -54,13 +55,13 @@ Intergration in hass is done by connecting the PIR to the switch input on a Shel
 ### Tablet
 
 ### shelly i3
-- Shelly i3
+- Shelly i3 Link
 - [Code](Node-Red/i3.json)
 
 ## Heating
 - [ESPHome 8 relay module](https://www.banggood.com/5V-or-7-28V-Power-Supply-8-Channel-ESP8266-WIFI-8-way-Relay-Module-ESP-12F-Development-Board-Secondary-Development-Board-p-1833055.html?cur_warehouse=CN&rmmds=buy)
 - [Temperature sensor](https://www.xiaomiproducts.nl/nl/xiaomi-aqara-temperatuur-en-vochtigheidssensor.html)
-- [Actuator] (https://www.vloerverwarmingstore.be/p/watts-230v-actuator-watts-actuator-22c-normaal-gesloten?gclid=Cj0KCQiAmL-ABhDFARIsAKywVaewXcgfjG1puQjNqt-2RWaMK8zt9UdgicWADp7w8jSVKL7FB5139mQaAjzWEALw_wcB)
+- [Actuator](https://www.vloerverwarmingstore.be/p/watts-230v-actuator-watts-actuator-22c-normaal-gesloten?gclid=Cj0KCQiAmL-ABhDFARIsAKywVaewXcgfjG1puQjNqt-2RWaMK8zt9UdgicWADp7w8jSVKL7FB5139mQaAjzWEALw_wcB)
 - [Code](Node-Red/heating.json)
 
 ## Alarm
