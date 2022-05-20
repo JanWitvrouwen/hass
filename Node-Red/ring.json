@@ -1,0 +1,312 @@
+[
+    {
+        "id": "1ef740e4b3334a20",
+        "type": "inject",
+        "z": "fc10c218e892b118",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "5e5a986af0d9f8b9",
+                "14571e8eb20f4030",
+                "d2d2dcaf7474a9b7"
+            ]
+        ]
+    },
+    {
+        "id": "14571e8eb20f4030",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Volume UP",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "media_player",
+        "service": "volume_set",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "media_player.bureau_google",
+            "media_player.living_google"
+        ],
+        "data": "{\"volume_level\":0.9}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "29bd8830a25a1e17"
+            ]
+        ]
+    },
+    {
+        "id": "08d935c4edb71c12",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Volume Down",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "media_player",
+        "service": "volume_set",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "media_player.bureau_google",
+            "media_player.living_google"
+        ],
+        "data": "{\"volume_level\":0.3}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 1020,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c71e688904d4788",
+        "type": "trigger-state",
+        "z": "fc10c218e892b118",
+        "name": "Ding Dong",
+        "server": "a9ab8e32.aa7d",
+        "version": 2,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityid": "binary_sensor.front_door_ding",
+        "entityidfiltertype": "exact",
+        "debugenabled": false,
+        "constraints": [
+            {
+                "targetType": "this_entity",
+                "targetValue": "",
+                "propertyType": "current_state",
+                "comparatorType": "is_not",
+                "comparatorValueDatatype": "str",
+                "comparatorValue": "off",
+                "propertyValue": "new_state.state"
+            }
+        ],
+        "inputs": 0,
+        "outputs": 2,
+        "customoutputs": [],
+        "outputinitially": false,
+        "state_type": "str",
+        "enableInput": false,
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "14571e8eb20f4030",
+                "5e5a986af0d9f8b9",
+                "d2d2dcaf7474a9b7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "29bd8830a25a1e17",
+        "type": "delay",
+        "z": "fc10c218e892b118",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 180,
+        "wires": [
+            [
+                "55f5531580b32917"
+            ]
+        ]
+    },
+    {
+        "id": "1751ab589bcdb3dc",
+        "type": "delay",
+        "z": "fc10c218e892b118",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 880,
+        "y": 160,
+        "wires": [
+            [
+                "08d935c4edb71c12"
+            ]
+        ]
+    },
+    {
+        "id": "55f5531580b32917",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Play Ding Dong",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "media_player",
+        "service": "play_media",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "media_player.bureau_google",
+            "media_player.living_google"
+        ],
+        "data": "{\"media_content_id\":\"https://xxx/DINGDONG.mp3\",\"media_content_type\":\"music\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 660,
+        "y": 240,
+        "wires": [
+            [
+                "1751ab589bcdb3dc"
+            ]
+        ],
+        "info": "{\n    \"event_type\": \"call_service\",\n    \"data\": {\n        \"domain\": \"tts\",\n        \"service\": \"google_translate_say\",\n        \"service_data\": {\n            \"entity_id\": \"media_player.living_google\",\n            \"message\": \"Who's That Knocking on My Door? \"\n        }\n    },\n    \"origin\": \"LOCAL\",\n    \"time_fired\": \"2022-01-21T17:27:33.314592+00:00\",\n    \"context\": {\n        \"id\": \"08688b89807925a89035da01577b6def\",\n        \"parent_id\": null,\n        \"user_id\": \"513f1290f60b4962b5656bff458cda74\"\n    }\n}"
+    },
+    {
+        "id": "5e5a986af0d9f8b9",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Ding Dong 3",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "esphome",
+        "service": "nspanel1_notification",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "{\"header\":\"Ding Dong\",\"message\":\"Er is iemand aan de deur\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 350,
+        "y": 380,
+        "wires": [
+            [
+                "dd3b3eca196f70f3"
+            ]
+        ]
+    },
+    {
+        "id": "dd3b3eca196f70f3",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Ding Dong 1",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "esphome",
+        "service": "nspanel_notification",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "{\"header\":\"Ding Dong\",\"message\":\"Er is iemand aan de deur\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 710,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2d2dcaf7474a9b7",
+        "type": "api-call-service",
+        "z": "fc10c218e892b118",
+        "name": "Notify Image",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "notify",
+        "service": "user",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [],
+        "data": "{\"message\":\"Ring Ring!\",\"data\":{\"image\":\"/api/camera_proxy/camera.xxx\",\"ttl\":0,\"priority\":\"high\"}}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "info": ""
+    },
+    {
+        "id": "a9ab8e32.aa7d",
+        "type": "server",
+        "name": "HASS",
+        "version": 2,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30"
+    }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "id": "43b21443950092d3",
+    "type": "trigger-state",
+    "z": "61138ab81bb548b5",
+    "name": "ns4 buttons",
+    "server": "a9ab8e32.aa7d",
+    "version": 2,
+    "exposeToHomeAssistant": false,
+    "haConfig": [
+      {
+        "property": "name",
+        "value": ""
+      },
+      {
+        "property": "icon",
+        "value": ""
+      },
+    ],
+    "entityid": "binary_sensor.nspanel_",
+    "entityidfiltertype": "substring",
+    "debugenabled": false,
+    "constraints": [
+      {
+        "targetType": "this_entity",
+        "targetValue": "",
+        "propertyType": "current_state",
+        "propertyValue": "new_state.state",
+        "comparatorType": "is",
+        "comparatorValueDatatype": "str",
+        "comparatorValue": "on",
+      },
+    ],
+    "inputs": 0,
+    "outputs": 2,
+    "customoutputs": [],
+    "outputinitially": false,
+    "state_type": "str",
+    "enableInput": false,
+    "x": 110,
+    "y": 940,
+    "wires": [
+      [
+        "12455575588b905c"
+      ],
+      []
+    ],
+  },
+  {
+    "id": "12455575588b905c",
+    "type": "switch",
+    "z": "61138ab81bb548b5",
+    "name": "Select Switch",
+    "property": "topic",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "cont",
+        "v": "light_0_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_1_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_2_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_3_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_4_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_5_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_6_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "light_7_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "left_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "right_button",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "heat_up",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "heat_down",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "heat_on",
+        "vt": "str"
+      },
+      {
+        "t": "cont",
+        "v": "boost_mode",
+        "vt": "str"
+      },
+      {
+        "t": "else"
+      },
+    ],
+    "checkall": "false",
+    "repair": false,
+    "outputs": 15,
+    "x": 290,
+    "y": 940,
+    "wires": [
+      [
+        "b0e0b355fd3f35ec"
+      ],
+      [
+        "56a3b0f8e743a83a"
+      ],
+      [
+        "227aa1b94769cb22"
+      ],
+      [
+        "1042eaf350e9bf75"
+      ],
+      [
+        "93c1056e2adf7d08"
+      ],
+      [
+        "1257cf305e9c730d"
+      ],
+      [
+        "cc4e4ac784341026"
+      ],
+      [
+        "0eaebb26222982e7"
+      ],
+      [
+        "48494facc73d3a64"
+      ],
+      [
+        "282c5165a31dc3f1"
+      ],
+      [
+        "a3fcd4a7d41d5f19"
+      ],
+      [
+        "1fbea51afd07918d"
+      ],
+      [
+        "56a5a66a6ac9f5f0"
+      ],
+      [
+        "73de0ac24aae8772"
+      ],
+      [
+        "377743dc3c379151"
+      ],
+    ],
+  },
+  {
+    "id": "377743dc3c379151",
+    "type": "debug",
+    "z": "61138ab81bb548b5",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 170,
+    "y": 1140,
+    "wires": [],
+  },
+  {
+    "id": "a9ab8e32.aa7d",
+    "type": "server",
+    "name": "HASS",
+    "version": 2,
+    "addon": true,
+    "rejectUnauthorizedCerts": true,
+    "ha_boolean": "y|yes|true|on|home|open",
+    "connectionDelay": true,
+    "cacheJson": true,
+    "heartbeat": false,
+    "heartbeatInterval": "30",
+  },
+]

@@ -1,0 +1,958 @@
+[
+    {
+        "id": "c40a56ba03248c88",
+        "type": "subflow",
+        "name": "Heat Mode filter",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "7d8eb98b3433d772"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 480,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "4383bc489cfa0107",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "mode",
+                "type": "str",
+                "value": "Winter - Full"
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "7d8eb98b3433d772",
+        "type": "api-current-state",
+        "z": "c40a56ba03248c88",
+        "name": "Heat Mode",
+        "server": "a9ab8e32.aa7d",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "entity_id": "input_select.house_heating_mode",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "heatmode",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "4383bc489cfa0107"
+            ]
+        ]
+    },
+    {
+        "id": "4383bc489cfa0107",
+        "type": "switch",
+        "z": "c40a56ba03248c88",
+        "name": "Select",
+        "property": "heatmode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "mode",
+                "vt": "env"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "679d602fdcc533ea",
+        "type": "comment",
+        "z": "0db21b4bd366aee2",
+        "name": "Als er 1 kamer moet verwarming, ketel aan.",
+        "info": "",
+        "x": 240,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "435f1a49346b4bb6",
+        "type": "server-state-changed",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "server": "a9ab8e32.aa7d",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "group.radiatoren_all",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": 0,
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 280,
+        "y": 1560,
+        "wires": [
+            [
+                "a713ef3ae6cbfea7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "a713ef3ae6cbfea7",
+        "type": "api-call-service",
+        "z": "0db21b4bd366aee2",
+        "name": "Ketel Aan",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_on",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.heating_gf_ketel"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 610,
+        "y": 1560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6332372a0ad9068d",
+        "type": "api-call-service",
+        "z": "0db21b4bd366aee2",
+        "name": "Ketel Uit",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "switch",
+        "service": "turn_off",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "switch.heating_gf_ketel"
+        ],
+        "data": "",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 610,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a44dae9e782112f",
+        "type": "server-state-changed",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "server": "a9ab8e32.aa7d",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "group.radiatoren_all",
+        "entityidfiltertype": "exact",
+        "outputinitially": true,
+        "state_type": "str",
+        "haltifstate": "off",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "for": "2",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 280,
+        "y": 1620,
+        "wires": [
+            [
+                "6332372a0ad9068d"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "22cab837c3bcabb5",
+        "type": "server-state-changed",
+        "z": "0db21b4bd366aee2",
+        "name": "Heating Temp Changed",
+        "server": "a9ab8e32.aa7d",
+        "version": 4,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "_heating_temp",
+        "entityidfiltertype": "substring",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 1,
+        "output_only_on_state_change": true,
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "ignorePrevStateNull": false,
+        "ignorePrevStateUnknown": false,
+        "ignorePrevStateUnavailable": false,
+        "ignoreCurrentStateUnknown": false,
+        "ignoreCurrentStateUnavailable": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            },
+            {
+                "property": "data",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "triggerId"
+            }
+        ],
+        "x": 240,
+        "y": 1040,
+        "wires": [
+            [
+                "5d6c0b7318d19c54"
+            ]
+        ]
+    },
+    {
+        "id": "50748d9e019c9854",
+        "type": "link in",
+        "z": "0db21b4bd366aee2",
+        "name": "Copy Heating mode from TMP to climate",
+        "links": [
+            "205970d5253d2c2f",
+            "b8dd30f542cdec3d",
+            "9de80b1343fe2923",
+            "355dd6b47266b101",
+            "dc9479bdb2990279",
+            "cae97658af97a766"
+        ],
+        "x": 155,
+        "y": 1100,
+        "wires": [
+            [
+                "95192e2b16ca92ca"
+            ]
+        ]
+    },
+    {
+        "id": "95192e2b16ca92ca",
+        "type": "function",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "func": "msg.zone = msg.payload\nmsg.zonetmp = msg.zone.replace(\"climate.\",\"\")\nmsg.zonetmp = \"input_select.\" + msg.zonetmp + \"_heating_temp\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1100,
+        "wires": [
+            [
+                "670ec827d862daed"
+            ]
+        ]
+    },
+    {
+        "id": "670ec827d862daed",
+        "type": "api-current-state",
+        "z": "0db21b4bd366aee2",
+        "name": "Get TMP",
+        "server": "a9ab8e32.aa7d",
+        "version": 3,
+        "outputs": 1,
+        "halt_if": "",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "{{zonetmp}}",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "entityState"
+            }
+        ],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 460,
+        "y": 1100,
+        "wires": [
+            [
+                "60cebf6f0c03e94e"
+            ]
+        ]
+    },
+    {
+        "id": "5d6c0b7318d19c54",
+        "type": "function",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "func": "msg.zone = msg.topic\nmsg.zone = msg.zone.replace(\"input_select.\",\"\")\nmsg.zone = msg.zone.replace(\"_heating_temp\",\"\")\nmsg.zone = \"climate.\" + msg.zone\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1040,
+        "wires": [
+            [
+                "a359984bce551d75"
+            ]
+        ]
+    },
+    {
+        "id": "a359984bce551d75",
+        "type": "api-current-state",
+        "z": "0db21b4bd366aee2",
+        "name": "Away Armed",
+        "server": "a9ab8e32.aa7d",
+        "version": 3,
+        "outputs": 2,
+        "halt_if": "armed_away",
+        "halt_if_type": "str",
+        "halt_if_compare": "is_not",
+        "entity_id": "alarm_control_panel.home_alarm",
+        "state_type": "str",
+        "blockInputOverrides": false,
+        "outputProperties": [],
+        "for": "0",
+        "forType": "num",
+        "forUnits": "minutes",
+        "override_topic": false,
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "x": 630,
+        "y": 1040,
+        "wires": [
+            [
+                "60cebf6f0c03e94e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "60cebf6f0c03e94e",
+        "type": "api-call-service",
+        "z": "0db21b4bd366aee2",
+        "name": "Reset Mode",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_preset_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "{{zone}}"
+        ],
+        "data": "{ \"preset_mode\": \"none\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "data.send",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 890,
+        "y": 1060,
+        "wires": [
+            [
+                "964ea8a5557afb59"
+            ]
+        ]
+    },
+    {
+        "id": "964ea8a5557afb59",
+        "type": "api-call-service",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "climate",
+        "service": "set_preset_mode",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "{{zone}}"
+        ],
+        "data": "{ \"preset_mode\": \"{{payload}}\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [
+            {
+                "property": "data.send",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "data"
+            }
+        ],
+        "queue": "none",
+        "x": 1150,
+        "y": 1040,
+        "wires": [
+            [
+                "7136d7d31787a34e"
+            ]
+        ]
+    },
+    {
+        "id": "7136d7d31787a34e",
+        "type": "debug",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1350,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b1f0ed2f23ba6bea",
+        "type": "cronplus",
+        "z": "0db21b4bd366aee2",
+        "name": "Calendar Living",
+        "outputField": "payload",
+        "timeZone": "",
+        "persistDynamic": true,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "str",
+                "payload": "comfort",
+                "expressionType": "cron",
+                "expression": "0 0 6 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule2",
+                "topic": "topic2",
+                "payloadType": "str",
+                "payload": "home",
+                "expressionType": "cron",
+                "expression": "0 0 9 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule3",
+                "topic": "topic3",
+                "payloadType": "str",
+                "payload": "comfort",
+                "expressionType": "cron",
+                "expression": "0 0 17 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule4",
+                "topic": "topic4",
+                "payloadType": "str",
+                "payload": "sleep",
+                "expressionType": "cron",
+                "expression": "0 0 21 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 240,
+        "y": 260,
+        "wires": [
+            [
+                "56025df2aff8eb0c"
+            ]
+        ]
+    },
+    {
+        "id": "baccc2a4dca1f29e",
+        "type": "cronplus",
+        "z": "0db21b4bd366aee2",
+        "name": "Calendar Living",
+        "outputField": "payload",
+        "timeZone": "",
+        "persistDynamic": true,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "str",
+                "payload": "comfort",
+                "expressionType": "cron",
+                "expression": "0 0 6 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule2",
+                "topic": "topic2",
+                "payloadType": "str",
+                "payload": "away",
+                "expressionType": "cron",
+                "expression": "0 0 9 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule3",
+                "topic": "topic3",
+                "payloadType": "str",
+                "payload": "comfort",
+                "expressionType": "cron",
+                "expression": "0 0 20 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            },
+            {
+                "name": "schedule4",
+                "topic": "topic4",
+                "payloadType": "str",
+                "payload": "sleep",
+                "expressionType": "cron",
+                "expression": "0 0 21 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 240,
+        "y": 300,
+        "wires": [
+            [
+                "a9d4c8720832a940"
+            ]
+        ]
+    },
+    {
+        "id": "cfd0de01483be734",
+        "type": "cronplus",
+        "z": "0db21b4bd366aee2",
+        "name": "Calendar Living",
+        "outputField": "payload",
+        "timeZone": "",
+        "persistDynamic": true,
+        "commandResponseMsgOutput": "output1",
+        "outputs": 1,
+        "options": [
+            {
+                "name": "schedule1",
+                "topic": "topic1",
+                "payloadType": "str",
+                "payload": "away",
+                "expressionType": "cron",
+                "expression": "0 0 6 ? * * *",
+                "location": "",
+                "offset": "0",
+                "solarType": "all",
+                "solarEvents": "sunrise,sunset"
+            }
+        ],
+        "x": 240,
+        "y": 340,
+        "wires": [
+            [
+                "8b7b7932b7d2506d"
+            ]
+        ]
+    },
+    {
+        "id": "d9c9ecc194488b58",
+        "type": "comment",
+        "z": "0db21b4bd366aee2",
+        "name": "Verwarming Living",
+        "info": "",
+        "x": 170,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "56025df2aff8eb0c",
+        "type": "subflow:c40a56ba03248c88",
+        "z": "0db21b4bd366aee2",
+        "name": "Winter Mode",
+        "x": 490,
+        "y": 260,
+        "wires": [
+            [
+                "a4e186078e11e4ce"
+            ]
+        ]
+    },
+    {
+        "id": "a9d4c8720832a940",
+        "type": "subflow:c40a56ba03248c88",
+        "z": "0db21b4bd366aee2",
+        "name": "Cold Morning",
+        "env": [
+            {
+                "name": "mode",
+                "value": "Cold Morning - Half",
+                "type": "str"
+            }
+        ],
+        "x": 500,
+        "y": 300,
+        "wires": [
+            [
+                "a4e186078e11e4ce"
+            ]
+        ]
+    },
+    {
+        "id": "8b7b7932b7d2506d",
+        "type": "subflow:c40a56ba03248c88",
+        "z": "0db21b4bd366aee2",
+        "name": "Summer",
+        "env": [
+            {
+                "name": "mode",
+                "value": "Summer - Off",
+                "type": "str"
+            }
+        ],
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "a4e186078e11e4ce"
+            ]
+        ]
+    },
+    {
+        "id": "a4e186078e11e4ce",
+        "type": "api-call-service",
+        "z": "0db21b4bd366aee2",
+        "name": "Set Option",
+        "server": "a9ab8e32.aa7d",
+        "version": 5,
+        "debugenabled": false,
+        "domain": "input_select",
+        "service": "select_option",
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "input_select.living_heating_temp"
+        ],
+        "data": "{ \"option\": \"{{payload}}\"}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "x": 710,
+        "y": 300,
+        "wires": [
+            [
+                "6d390b3edbbf13cd"
+            ]
+        ]
+    },
+    {
+        "id": "6d390b3edbbf13cd",
+        "type": "debug",
+        "z": "0db21b4bd366aee2",
+        "name": "Result Living",
+        "active": true,
+        "tosidebar": false,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "17c77b80a7eea1f9",
+        "type": "inject",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "props": [
+            {
+                "p": "random",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "120",
+        "topic": "",
+        "x": 190,
+        "y": 2220,
+        "wires": [
+            [
+                "f781e804f889c720"
+            ]
+        ]
+    },
+    {
+        "id": "f781e804f889c720",
+        "type": "ha-get-entities",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "server": "a9ab8e32.aa7d",
+        "version": 0,
+        "rules": [
+            {
+                "property": "entity_id",
+                "logic": "starts_with",
+                "value": "climate.",
+                "valueType": "str"
+            }
+        ],
+        "output_type": "split",
+        "output_empty_results": false,
+        "output_location_type": "msg",
+        "output_location": "payload",
+        "output_results_count": 1,
+        "x": 370,
+        "y": 2220,
+        "wires": [
+            [
+                "0f5e4ba7c3703680"
+            ]
+        ]
+    },
+    {
+        "id": "0f5e4ba7c3703680",
+        "type": "change",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.entity_id",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 2220,
+        "wires": [
+            [
+                "cae97658af97a766"
+            ]
+        ]
+    },
+    {
+        "id": "cae97658af97a766",
+        "type": "link out",
+        "z": "0db21b4bd366aee2",
+        "name": "",
+        "mode": "link",
+        "links": [
+            "50748d9e019c9854"
+        ],
+        "x": 785,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "a9ab8e32.aa7d",
+        "type": "server",
+        "name": "HASS",
+        "version": 2,
+        "addon": true,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30"
+    }
+]
