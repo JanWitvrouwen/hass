@@ -58,6 +58,8 @@ Intergration in hass is done by connecting the PIR to the switch input on a Shel
 - Shelly i3 Link
 - [Code](Node-Red/i3.json)
 
+### Ikea Tradfri remote
+- [Code](Node-Red/tradfri_Remote.json)
 ## Heating
 - [ESPHome 8 relay module](https://www.banggood.com/5V-or-7-28V-Power-Supply-8-Channel-ESP8266-WIFI-8-way-Relay-Module-ESP-12F-Development-Board-Secondary-Development-Board-p-1833055.html?cur_warehouse=CN&rmmds=buy)
 - [Temperature sensor](https://www.xiaomiproducts.nl/nl/xiaomi-aqara-temperatuur-en-vochtigheidssensor.html)
