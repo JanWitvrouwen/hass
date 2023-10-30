@@ -25,6 +25,7 @@ adb shell input keyevent 3
 *Check installation*
 ```
 adb install '.\com.google.android.webview_95.0.4638.74-463807400_minAPI21(armeabi-v7a)(nodpi)_apkmirror.com.apk'
+adb install '.\Android System WebView_115.0.5790.138_Apkpure.apk'
 adb shell input keyevent 3
 ```
 *Activate Dev mode*
@@ -51,11 +52,15 @@ pm uninstall --user 0 com.cghs.stresstest
 ```
 ```
 adb -e install .\nspanel-pro-tools-1.1.0-release.apk
-adb -e install .\app-minimal-release.apk
+adb -e install .\app-full-release.apk
 adb shell input keyevent 3
 ```
 *Open NSpanel pro tools and config*
 
 ```
 adb shell input text BLA
+pm list packages |grep home
+adb uninstall io.homeassistant.companion.android.minimal
+
+
 ```
