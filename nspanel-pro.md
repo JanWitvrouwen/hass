@@ -28,8 +28,11 @@ adb install '.\com.google.android.webview_95.0.4638.74-463807400_minAPI21(armeab
 adb shell input keyevent 3
 ```
 *Activate Dev mode*
+
 *change webview*
+
 *Uninstall bloatware*
+
 ```
 adb shell
 pm uninstall --user 0 com.eWeLinkControlPanel
