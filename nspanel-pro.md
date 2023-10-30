@@ -1,6 +1,7 @@
 # NSpanel Pro dirty guide
 
 https://blakadder.com/nspanel-pro-sideload/
+
 https://blakadder.com/android-panel-webview/
 
 ```
@@ -28,6 +29,7 @@ adb shell input keyevent 3
 ```
 *Activate Dev mode*
 *change webview*
+*Uninstall bloatware*
 ```
 adb shell
 pm uninstall --user 0 com.eWeLinkControlPanel
